@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form">
+        <label for="Name">NAME : </label>
+        <input type="text" placeholder="Enter Your Name">
+        <br>
+        <label for="Father NAME">Father Name : </label>
+        <input type="text" placeholder="Father Name">
+        <br>
+        <input type="text" placeholder="Mother Name">
+        <br>
+        <select name="select1" id="select1" onchange="populate(this.id,'select2')">
+            <option>Choose Course</option>
+            <option>B.Tech</option>
+            <option>Polytecnic</option>
+            <option>MBA</option>
+            <option>B.Pharma</option>
+            <option>D.Pharma</option>
+            <option>None Of These</option>
+        </select>
+        <br>
+        <select name="select2" id="select2"></select>
+        <br>
+        <input type="date" placeholder="DOB">
+    </div>
+
+
+
+
+    <script>
+        function populate(s1,s2)
+        {
+            var s1= document.getElementById(s1);
+            var s2= document.getElementById(s2);
+            s2.innerHTML="";
+            if(s1.value=="B.Tech")
+            {
+                var optionArray = ['choose branch|Choose Branch','Cse|CSE','It|IT','Aiml|AIML','csd|CSD','ec|EC','ee|EE','ce|CE','me|ME'];
+
+            }
+            else if(s1.value=="Polytecnic")
+            {
+                var optionArray = ['choose branch|Choose Branch','Cse|CSE','It|IT','Aiml|AIML','csd|CSD','ec|EC','ee|EE','ce|CE','me|ME'];
+            }
+            else {
+                var optionArray = ['nothing|Nothing'];
+            }
+            for(var option in optionArray)
+             {
+                var pair=optionArray[option].split("|");
+                var newoption=document.createElement("option");
+                newoption.value=pair[0];
+                newoption.innerHTML=pair[1];
+                s2.options.add(newoption);
+            }
+        }
+    </script>
+</body>
+</html>
